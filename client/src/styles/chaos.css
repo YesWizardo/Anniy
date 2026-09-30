@@ -1,0 +1,74 @@
+/* Chaotic Visual Styling (Section 4.5) */
+
+.tilt-left-1 { transform: rotate(-1.5deg); }
+.tilt-right-1 { transform: rotate(1.5deg); }
+.tilt-left-2 { transform: rotate(-3.2deg); }
+.tilt-right-2 { transform: rotate(3.2deg); }
+.tilt-left-3 { transform: rotate(-4deg); }
+.tilt-right-3 { transform: rotate(4deg); }
+
+/* Price flicker */
+@keyframes priceFlickerAnim {
+  0% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.6; transform: scale(0.96) skewX(-4deg); color: #ff0055; }
+  50% { opacity: 1; transform: scale(1.04); color: #39ff14; }
+  75% { opacity: 0.8; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.price-flicker {
+  animation: priceFlickerAnim 2.2s infinite ease-in-out;
+}
+
+/* Cart Item Falling Out Animation */
+@keyframes cartFallAnim {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  60% { transform: translateY(120px) rotate(18deg); opacity: 0.8; }
+  100% { transform: translateY(320px) rotate(45deg); opacity: 0; }
+}
+
+.cart-item-falling {
+  animation: cartFallAnim 2.8s infinite ease-in;
+}
+
+/* Sticker Bomb Elements */
+.sticker {
+  position: absolute;
+  pointer-events: none;
+  z-index: 40;
+  filter: drop-shadow(2px 3px 0px rgba(0, 0, 0, 0.4));
+}
+
+/* Marquee text scroll */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  display: flex;
+  width: 200%;
+  animation: marqueeScroll 18s linear infinite;
+}
+
+/* Vanish button nice try toast */
+.nice-try-toast {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #39ff14;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  animation: fadeUp 1.2s forwards;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translate(-50%, 8px); }
+  30% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -12px); }
+}
